@@ -12,7 +12,7 @@ import org.apache.cxf.message.Message;
 
 public class CXFInterfaceComparator implements ResourceComparator {
 
-	private static final FAKE_LOGGER LOGGER = new FAKE_LOGGER();
+	private static final FAKE_LOGGER LOGGER = new FAKE_LOGGER(); // Replace with your own logger
 
 	@Override
 	public int compare(ClassResourceInfo cri1, ClassResourceInfo cri2, Message message) {
