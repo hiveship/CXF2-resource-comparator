@@ -5,9 +5,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @SuppressWarnings("static-method")
-/**
- * Tests for CXFInterfaceComparator
- */
 public class TestCXFInterfaceRegex {
 	
 	// ===========================
