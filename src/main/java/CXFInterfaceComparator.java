@@ -19,14 +19,19 @@ public class CXFInterfaceComparator implements ResourceComparator {
 		String requestVerb = (String) message.get(Message.HTTP_REQUEST_METHOD);
 		String requestURI = (String) message.get(Message.REQUEST_URI);
 		String requestPath = requestURI.replace((String) message.get(Message.BASE_PATH), "");
-		LOGGER.info("The request path for match analysis is -> " + requestPath + " . The HTTP verb of the request is -> " + requestVerb);
+		LOGGER.debug("The request path for match analysis is -> " + requestPath + " . The HTTP verb of the request is -> " + requestVerb);
+
+		// remove "/"at the end of requestPath if present
+		if (requestPath.endsWith("/")){
+			requestPath = requestPath.substring(0, requestPath.length()-1);
+		}
 
 		if (analyseInterface(cri1, requestPath, requestVerb)) {
 			return -1; // Indicate that 'cri1' interface should be preferred
 		} else if (analyseInterface(cri2, requestPath, requestVerb)) {
 			return 1; // Indicate that 'cri2' interface should be preferred
 		} else {
-			LOGGER.info("No match found for request URI -> " + message.get(Message.REQUEST_URI) + " in interfaces -> "
+			LOGGER.debug("No match found for request URI -> " + message.get(Message.REQUEST_URI) + " in interfaces -> "
 					+ cri1.getServiceClass().getInterfaces()[0] + " and " + cri2.getServiceClass().getInterfaces()[0]);
 			return 0; // Nothing match, leave CXF decision
 		}
@@ -57,8 +62,14 @@ public class CXFInterfaceComparator implements ResourceComparator {
 				String pathValue = pathAnnotation.value();
 				String methodHttpVerb = getMethodHttpVerb(method);
 
+				// Always authorize OPTIONS request if the path is matching a method declaration
+				if (requestVerb.equals(HttpMethod.OPTIONS) && match(pathValue,requestPath)) {
+					LOGGER.debug("ANALYZE INTERFACE RETURN TRUE FOR " + cri.getServiceClass());
+					return true;
+				}
 				// Also check the HTTP verb since a single path can be match do multiple request, depending of the HTTP request verb.
 				if (requestVerb.equals(methodHttpVerb) && match(pathValue, requestPath)) {
+					LOGGER.debug("ANALYZE INTERFACE RETURN TRUE FOR " + cri.getServiceClass());
 					return true;
 				}
 			}
@@ -80,6 +91,7 @@ public class CXFInterfaceComparator implements ResourceComparator {
 		} else if (method.getAnnotation(javax.ws.rs.HEAD.class) != null) {
 			return HttpMethod.HEAD;
 		} 
+		assert false;
 		return null;
 	}
 
@@ -102,7 +114,7 @@ public class CXFInterfaceComparator implements ResourceComparator {
 
 	@Override
 	public int compare(OperationResourceInfo arg0, OperationResourceInfo arg1, Message arg2) {
-		return 0;
+		return 0; // Leave CXF decision
 	}
 
 }
