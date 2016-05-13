@@ -22,11 +22,9 @@ public class TestCXFInterfaceRegex {
 		String proposal = "/foo/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a5/bar"; // should match
 		
 		Matcher matcher = pattern.matcher(proposal);
-		if (matcher.matches()){
-			Assert.assertTrue(true);
-		} else {
+		if (! matcher.matches()){
 			Assert.assertTrue(false);
-		}
+		} 
 	}
 	
 	@Test
@@ -37,11 +35,9 @@ public class TestCXFInterfaceRegex {
 		String proposal = "/foo/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a5/"; // should not match because missing 'bar'
 		
 		Matcher matcher = pattern.matcher(proposal);
-		if (matcher.matches()) {
+		if (! matcher.matches()){
 			Assert.assertTrue(false);
-		} else {
-			Assert.assertTrue(true);
-		}
+		} 
 	}
 	
 	@Test
@@ -52,11 +48,9 @@ public class TestCXFInterfaceRegex {
 		String proposal = "/foo/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a5/bar/u54191e7-b3g8-3744-ba0a-b90o5c3ba1a4"; // should not match because of the second param after the /bar
 		
 		Matcher matcher = pattern.matcher(proposal);
-		if (matcher.matches()) {
+		if (! matcher.matches()){
 			Assert.assertTrue(false);
-		} else {
-			Assert.assertTrue(true);
-		}
+		} 
 	}
 	
 	// ================
@@ -71,11 +65,9 @@ public class TestCXFInterfaceRegex {
 		String proposal = "/foo/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a5/bar/u54191e7-b3g8-3744-ba0a-b90o5c3ba1a4"; // should match
 		
 		Matcher matcher = pattern.matcher(proposal);
-		if (matcher.matches()) {
-			Assert.assertTrue(true);
-		} else {
+		if (! matcher.matches()){
 			Assert.assertTrue(false);
-		}
+		} 
 	}
 	
 	@Test
@@ -86,11 +78,9 @@ public class TestCXFInterfaceRegex {
 		String proposal = "/foo/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a5/bar/u54191e7-b3g8-3744-ba0a-b90o5c3ba1a4/info"; // should not match
 		
 		Matcher matcher = pattern.matcher(proposal);
-		if (matcher.matches()) {
+		if (! matcher.matches()){
 			Assert.assertTrue(false);
-		} else {
-			Assert.assertTrue(true);
-		}
+		} 
 	}
 	
 	@Test
@@ -101,11 +91,9 @@ public class TestCXFInterfaceRegex {
 		String proposal = "/foo/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a5/bar/u54191e7-b3g8-3744-ba0a-b90o5c3ba1a4"; // should not match
 		
 		Matcher matcher = pattern.matcher(proposal);
-		if (matcher.matches()) {
+		if (! matcher.matches()){
 			Assert.assertTrue(false);
-		} else {
-			Assert.assertTrue(true);
-		}
+		} 
 	}
 	
 	@Test
@@ -116,11 +104,9 @@ public class TestCXFInterfaceRegex {
 		String proposal = "/foo/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a5/bar/u54191e7-b3g8-3744-ba0a-b90o5c3ba1a4"; // should not match
 		
 		Matcher matcher = pattern.matcher(proposal);
-		if (matcher.matches()) {
+		if (! matcher.matches()){
 			Assert.assertTrue(false);
-		} else {
-			Assert.assertTrue(true);
-		}
+		} 
 	}
 	
 	@Test
@@ -131,11 +117,9 @@ public class TestCXFInterfaceRegex {
 		String proposal = "/part1/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a2/part2/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a7/part3/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a8/part4/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a5/part5/b46191e7-b2f7-4184-ba8a-b90a5c3ba1a9"; // should match
 		
 		Matcher matcher = pattern.matcher(proposal);
-		if (matcher.matches()) {
-			Assert.assertTrue(true);
-		} else {
+		if (! matcher.matches()){
 			Assert.assertTrue(false);
-		}
+		} 
 	}
 	
 	// =========
