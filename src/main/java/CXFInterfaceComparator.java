@@ -12,6 +12,8 @@ import org.apache.cxf.message.Message;
 
 public class CXFInterfaceComparator implements ResourceComparator {
 
+	// TODO: Add check 'LOGGER.isDebugEnable()'' before trying to log something
+	
 	private static final FAKE_LOGGER LOGGER = new FAKE_LOGGER(); // TODO: Replace with your own logger
 
 	@Override
