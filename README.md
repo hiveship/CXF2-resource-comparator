@@ -22,7 +22,7 @@ Using version 2 of Apache CXF, there is an issue when multiple resource has the 
 
 The main problem is when requesting `GET /bar`, the `First` resource could be selected. It will cause an error because there is no corresponding method in the `First` resource.
 
-See the declared bug: https://issues.apache.org/jira/browse/CXF-5360
+See the declared issue: https://issues.apache.org/jira/browse/CXF-5360
 
 ## Solution
 
