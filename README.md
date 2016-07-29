@@ -24,14 +24,14 @@ The main problem is when requesting `GET /bar`, the `First` resource could be se
 
 See the declared issue: https://issues.apache.org/jira/browse/CXF-5360
 
-## Solution
+## Solutions
 
 There is 3 different solution to solve this issue:
 - If you can, migrate to Apache CXF v3.x. This new major version correct this issue.
 - Be careful and do not use two identical value for the global `@Path` annotation.
 - Set a custom `ResourceComparator`to your project.
 
-## Set a custom resource comparator
+### Set a custom resource comparator
 
 To solve the explained issue in Apache CXF 2.x, a solution is to use a custom `ResourceComparator`.
 See the official documentation about this: http://cxf.apache.org/docs/jax-rs-basics.html#JAX-RSBasics-Customselectionbetweenmultipleresourcesoroperations
