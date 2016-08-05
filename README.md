@@ -1,4 +1,5 @@
 # Resource comparator for Apache CXF v2.x
+![Apache CXF](./apache-cxf.png)
 
 ## Apache CXF framework
 
