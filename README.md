@@ -11,12 +11,18 @@ Using version 2 of Apache CXF, there is an issue when multiple resource has the 
 ### Possible issue using Apache CXF v2.x
 
 ```java
-@Path("/") public interface First {
-   @GET @Path("foo") public void foo();
+@Path("/") 
+public interface First {
+   @GET 
+   @Path("foo") 
+   Response foo();
 }
 
-@Path("/") public interface Second {
-   @GET @Path("bar") void String bar();
+@Path("/")
+public interface Second {
+   @GET
+   @Path("bar")
+   Response bar();
 }
 ```
 
