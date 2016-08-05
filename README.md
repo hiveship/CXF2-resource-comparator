@@ -4,7 +4,7 @@
 
 Apache CXF is an open source services framework. CXF helps you build and develop services using frontend programming APIs, like JAX-WS and JAX-RS. These services can speak a variety of protocols such as SOAP, XML/HTTP, RESTful HTTP, or CORBA and work over a variety of transports such as HTTP, JMS or JBI.
 
-## Aim of this code?
+## Context
 
 Using version 2 of Apache CXF, there is an issue when multiple resource has the same value for the global `@Path` annotation. The discriminant path is the same so CXF don't know which resource to select. With the default behaviour of Apache CXF v2.x, for an incoming request, a resource will be “randomly” selected.
 
@@ -51,3 +51,7 @@ The custom comparator must be declared in the JAX-RS configuration file:
 ```
 
 This custom comparator help CXF to decide which resource class/interface should be used to match the incoming request. This comparator analyse all the resources and try to find in which of them the incoming request is declared, looking at the methods `@Path` and verb annotations. 
+
+## Extra information
+
+All `OPTIONS` HTTP requests are automatically accepted if the request path of the request is matching an existing method path declaration.
