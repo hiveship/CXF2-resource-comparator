@@ -3,7 +3,7 @@
 
 ## Apache CXF framework
 
-Apache CXF is an open source services framework. CXF helps you build and develop services using frontend programming APIs, like JAX-WS and JAX-RS. These services can speak a variety of protocols such as SOAP, XML/HTTP, RESTful HTTP, or CORBA and work over a variety of transports such as HTTP, JMS or JBI.
+Apache CXF is an open source service framework. CXF helps you build and develop services using frontend programming APIs, like JAX-WS and JAX-RS. These services can speak a variety of protocols such as SOAP, XML/HTTP, RESTful HTTP, or CORBA and work over a variety of transports such as HTTP, JMS or JBI.
 
 ## Context
 
@@ -33,9 +33,9 @@ See the declared issue: https://issues.apache.org/jira/browse/CXF-5360
 
 ## Solutions
 
-There is 3 different solution to solve this issue:
+There are 3 different solutions to solve this issue:
 - If you can, migrate to Apache CXF v3.x. This new major version correct this issue.
-- Be careful and do not use two identical value for the global `@Path` annotation.
+- Be careful and do not use two identical values for the global `@Path` annotation.
 - Set a custom `ResourceComparator`to your project.
 
 ### Set a custom resource comparator
@@ -51,7 +51,7 @@ The custom comparator must be declared in the JAX-RS configuration file:
 </jaxrs:resourceComparator>
 ```
 
-This custom comparator help CXF to decide which resource class/interface should be used to match the incoming request. This comparator analyse all the resources and try to find in which of them the incoming request is declared, looking at the methods `@Path` and verb annotations. 
+This custom comparator help CXF to decide which resource class/interface should be used to match the incoming request. This comparator analyse all the resources and try to find out in which of them the incoming request is declared, looking at the methods `@Path` and verb annotations. 
 
 ## Extra information
 
